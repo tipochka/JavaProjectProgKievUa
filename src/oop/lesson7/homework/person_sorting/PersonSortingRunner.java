@@ -1,6 +1,7 @@
 package oop.lesson7.homework.person_sorting;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Xepcoh on 20.10.2016.
@@ -11,6 +12,18 @@ public class PersonSortingRunner {
 
         List<Person> persons = personsFill();
 
+        List<Person> result = sortByName(filterBetweenAge(persons, 12, 17));
+
+        System.out.println(result);
+
+    }
+
+    private static List<Person> sortByName(List<Person> persons) {
+        return persons.stream().sorted((o1, o2) -> o1.getName().compareTo(o2.getName())).collect(Collectors.toList());
+    }
+
+    private static List<Person> filterBetweenAge(List<Person> persons, int ageFrom, int ageTo) {
+        return persons.stream().filter(a -> a.getAge() >=ageFrom && a.getAge() <= ageTo).collect(Collectors.toList());
     }
 
     private static List<Person> personsFill() {
