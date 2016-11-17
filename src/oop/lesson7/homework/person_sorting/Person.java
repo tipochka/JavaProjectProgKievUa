@@ -5,8 +5,8 @@ package oop.lesson7.homework.person_sorting;
  * Created by Xepcoh on 20.10.2016.
  */
 public class Person {
-    private String name;
-    private int age;
+    private final String name;
+    private final int age;
 
     public Person(String name, int age) {
         this.name = name;
